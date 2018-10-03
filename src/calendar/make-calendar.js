@@ -25,6 +25,18 @@ const splitIntoWeeks = dates => {
 
   }
 
+  if(datesInWeeks.length > 5) {
+    
+    datesInWeeks[5].map((date, i) => 
+
+      datesInWeeks[0][i] = date
+
+    );
+
+    datesInWeeks.pop();
+
+  }
+
   return datesInWeeks;
 
 };

@@ -4,26 +4,38 @@
 
 .App {
   text-align: center;
+  margin: 10px 0;
+}
+
+.MonthYearContainer {
+	margin: 3mm 0;
+	font-size: 1.2rem;
+}
+
+.MonthYearContainer, .DaysContainer {
+	font-weight: bold;
+}
+
+.DaysContainer {
+	background-color: #ccc;
 }
 
 .DatesTable {
-	width: 280mm;
+	 width: 283mm; 
 	margin: auto;
 }
 
-.Week {
-	display: block;
+.DatesTable, .Date {
+	border-collapse: collapse;
 }
 
 .Date {
-	display: inline-block;
-	margin: 0;
-	padding: 0;
+	width: 40mm;
 	min-height: 36mm;
-	max-height: 36mm;
-	min-width: 40mm;
-	max-width: 40mm;
-	border: 1px solid #000;
+	height: 36mm;
+	border: .25mm solid #000;
+	text-align: right;
+	vertical-align: top;
 }
 
 .Date.empty {
@@ -31,7 +43,10 @@
 }
 
 @media print {
-	.MonthYearInput {
+	.App {
+		margin: 0;
+	}
+	.MonthYearInput, .Info {
 		display: none;
 	}
 }
