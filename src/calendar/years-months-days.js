@@ -2,7 +2,7 @@ const getYears = (from, to) => {
 	return Array(to - from + 1).fill().map((_, i) => from + i);
 };
 
-export const YEARS = getYears(2018, 2020);
+export const YEARS = getYears(2017, 2020);
 
 export const MONTHS = [
 	'January',

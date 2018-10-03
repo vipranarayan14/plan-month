@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { makeCalendar } from "./calendar/make-calendar";
 import { YEARS, MONTHS, DAYS } from  './calendar/years-months-days';
+import { getYearMonth } from './calendar/get-year-month';
 import "./App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
+    const searchQuery = window.location.search;
+    
+    const {year, month} = getYearMonth(searchQuery);
 
     this.state = {
       year,
@@ -19,6 +20,7 @@ class App extends Component {
 
     this.handleMonthChange = this.handleMonthChange.bind(this);
     this.handleYearChange = this.handleYearChange.bind(this);
+
   }
 
   handleMonthChange(e) {
@@ -43,7 +45,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="MonthYearInput">
-          <select onChange={this.handleYearChange}>
+          <select value={this.state.year} onChange={this.handleYearChange}>
             {
               YEARS.map((year, i) => 
                 <option value={year} key={i}>{year}</option>
@@ -51,7 +53,7 @@ class App extends Component {
             }
           </select>
 
-          <select onChange={this.handleMonthChange}>
+          <select value={this.state.month} onChange={this.handleMonthChange}>
             {
               MONTHS.map((month, i) => 
                 <option value={i + 1} key={i}>{month}</option>
